@@ -1,0 +1,6 @@
+package osc.greenlive.model;
+
+public class data {
+	private Long id;
+	private String name;
+}

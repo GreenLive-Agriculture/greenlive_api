@@ -1,0 +1,13 @@
+package osc.greenlive.model;
+
+import jakarta.persistence.Id;
+
+public class ModelIA {
+	private String name_IA;
+	private String IA_caracteristic;
+	
+	@Id
+	private long Id_IA;
+	
+	
+}

@@ -1,0 +1,29 @@
+package osc.greenlive.model;
+
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+
+public class Cultures {
+
+		private Long type_culture;
+		private Date date_plantation;
+		private Long superficie;
+		
+		@Id
+		private Long id_culture;
+		
+		@ManyToOne
+		private User culture_u;
+		
+		@ManyToMany
+		private List<Kit> culture_kit = new ArrayList<>();
+		
+		
+		
+		
+}

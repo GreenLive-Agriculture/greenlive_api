@@ -1,0 +1,7 @@
+package osc.greenlive.model;
+
+public class ModelIA {
+	private String name_IA;
+	private String IA_caracteristic;
+	private long Id_IA;
+}

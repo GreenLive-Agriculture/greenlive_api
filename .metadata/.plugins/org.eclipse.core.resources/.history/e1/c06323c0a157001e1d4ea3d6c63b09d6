@@ -1,0 +1,8 @@
+package osc.greenlive.model;
+
+public class cultures {
+
+		private Long type_culture;
+		private Date date_plantation;
+		private Long superficie;
+}

@@ -1,0 +1,6 @@
+package osc.greenlive.model;
+
+public class data_type {
+	private String data_type;
+	private String type;
+}

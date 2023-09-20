@@ -1,0 +1,9 @@
+package osc.greenlive.model;
+
+public class user {
+	private String name;
+	private Long id_user;
+	private String fonction;
+	private boolean actif;
+	private String email;
+}

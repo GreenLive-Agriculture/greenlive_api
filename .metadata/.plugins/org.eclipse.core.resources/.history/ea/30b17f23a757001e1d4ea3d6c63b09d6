@@ -1,0 +1,10 @@
+package osc.greenlive.model;
+
+import java.sql.Date;
+
+public class cultures {
+
+		private Long type_culture;
+		private Date date_plantation;
+		private Long superficie;
+}

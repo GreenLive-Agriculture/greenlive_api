@@ -1,0 +1,15 @@
+package osc.greenlive.model;
+
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+
+public class ModelIA {
+	private String name_IA;
+	private String IA_caracteristic;
+	
+	@Id
+	private long Id_IA;
+	
+	@ManyToOne
+	private User modelIA_user;
+}

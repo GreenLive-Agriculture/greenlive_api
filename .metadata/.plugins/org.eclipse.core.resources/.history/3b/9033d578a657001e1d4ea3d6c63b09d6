@@ -1,0 +1,16 @@
+package osc.greenlive.model;
+
+import jakarta.persistence.Id;
+
+
+public class user {
+	private String name;
+	
+	@Id
+	private Long id_user;
+	
+	private String fonction;
+	private boolean actif;
+	private String email;
+	private String sexe;
+}

@@ -1,0 +1,12 @@
+package osc.greenlive.model;
+
+import jakarta.persistence.Id;
+
+public class Ressource {
+	private String name_ressource;
+	
+	@Id
+	private Long id_ressource;
+	
+	private String type_ressource;
+}
