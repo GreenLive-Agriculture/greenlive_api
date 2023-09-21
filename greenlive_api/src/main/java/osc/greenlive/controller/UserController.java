@@ -1,5 +1,7 @@
 package osc.greenlive.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import osc.greenlive.model.Cultures;
 import osc.greenlive.model.User;
 import osc.greenlive.service.UserServiceImpl;
 
@@ -49,6 +52,13 @@ public class UserController {
 	{
 		User user_find = this.user_service.findUserByID(id_user);
 		return new ResponseEntity<User>(user_find,HttpStatus.CREATED);
+	}
+	
+	@PostMapping("/culture_list/{id_user}")
+	public ResponseEntity<List<Cultures>> list_culture(@PathVariable Long id_user)
+	{
+		List<Cultures> user_change = this.user_service.list_culture(id_user) ;
+		return new ResponseEntity<List<Cultures>>(user_change,HttpStatus.CREATED);
 	}
 	
 }

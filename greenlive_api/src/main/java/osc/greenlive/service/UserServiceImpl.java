@@ -1,7 +1,6 @@
 package osc.greenlive.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -36,8 +35,6 @@ public class UserServiceImpl implements UserService{
 		User get_user = this.userRepo.findById(id_user).orElse(null);
 		
 		get_user = user ;
-		
-		
 		return get_user;
 	}
 
@@ -51,7 +48,9 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public List<Cultures> list_culture(Long id_user) {
 		// TODO Auto-generated method stub
-		return null;
+		User get_user = this.userRepo.findById(id_user).orElse(null) ;
+		
+		return get_user.getUser_culture();
 	}
 
 }
