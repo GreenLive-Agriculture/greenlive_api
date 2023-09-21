@@ -2,29 +2,16 @@ package osc.greenlive.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import osc.greenlive.model.Cultures;
-import osc.greenlive.repository.CulturesServiceRepo;
-import osc.greenlive.model.Cultures;
 
-@Service
-public class CultureService {
 
-	@Autowired
-    private CulturesServiceRepo cultureRepository;
+public interface CultureService {
+	
+	
+	public Cultures saveCulture(Cultures culture);
+	public List<Cultures> findCultures();
+	public Cultures deleteCulture(Long id_culture);
+	public Cultures updateCulture(Long id_culture , Cultures culture);
 
-    @Override
-    public void enregistrerCulture(Cultures culture) {
-        cultureRepository.save(culture);
-    }
-
-    @Override
-    public List<Cultures> listerCultures() {
-        return cultureRepository.findAll();
-    }
-    
-    
-    
 }

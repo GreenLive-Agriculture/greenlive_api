@@ -1,39 +1,27 @@
 package osc.greenlive.controller;
 
-import org.hibernate.mapping.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import osc.greenlive.model.Cultures;
-import osc.greenlive.service.CultureService;
+import osc.greenlive.service.CultureServiceImpl;
 
-@Controller
+@RestController
+@RequestMapping("/culture")
 public class CulturesController {
 	
-	 @Autowired
-	 private CultureService cultureService;
-	 
-	 @GetMapping("/cultures")
-	 public String listerCultures(Model model) {
-		 
-		 List<Cultures> cultures = cultureService.listerCultures();
-	     model.addAttribute("cultures", cultures);
-	     return "cultures";
-	 }
-	 
-	 @GetMapping("/cultures/add")
-	 public String afficherFormulaireAjoutCulture(Model model) {
-	     Cultures culture = new Cultures();
-	     model.addAttribute("culture", culture);
-	     return "ajouterCulture";
-	 }
-	 
-	 @PostMapping("/cultures/ajouter")
-	 public String enregistrerCulture(@ModelAttribute("culture") Cultures culture) {
-	     cultureService.enregistrerCulture(culture);
-	     return "redirect:/cultures";
-	 }
+	private CultureServiceImpl culture_service;
 	
+	public CulturesController(CultureServiceImpl culture_service)
+	{
+		this.culture_service = culture_service;
+	}
+	
+	@PostMapping("/save")
+	 public Cultures cultureSave(Cultures culture)
+	 {
+		 return this.culture_service.saveCulture(culture);
+	 }
 }
