@@ -20,8 +20,6 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User saveUser(User user) {
-		System.out.print(user.getFonction());
-		
 		return this.userRepo.save(user);
 	}
 

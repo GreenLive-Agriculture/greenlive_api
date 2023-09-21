@@ -1,6 +1,9 @@
 package osc.greenlive.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,8 +22,10 @@ public class UserController {
 	}
 	
 	@PostMapping("/save")
-	public User userSave(User user) {
-		return this.user_service.saveUser(user);
+	public ResponseEntity<User> userSave(@RequestBody User user) {
+		
+		User userExist = this.user_service.saveUser(user);
+		return new ResponseEntity<User>(userExist,HttpStatus.CREATED);
 	}
 
 }
