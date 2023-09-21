@@ -1,6 +1,7 @@
 package osc.greenlive.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -31,14 +32,20 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User updateUser(Long id_user, User user) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		User get_user = this.userRepo.findById(id_user).orElse(null);
+		
+		get_user = user ;
+		
+		
+		return get_user;
 	}
 
 	@Override
 	public User findUserByID(Long id_user) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		return this.userRepo.findById(id_user).orElse(null);
 	}
 
 	@Override

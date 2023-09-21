@@ -37,5 +37,18 @@ public class UserController {
 		return new ResponseEntity<User>(HttpStatus.OK);
 	}
 		
-
+	@PostMapping("/set_user/{id}")
+	public ResponseEntity<User> updateUser(@PathVariable Long id ,@RequestBody User user)
+	{
+		User user_change = this.user_service.updateUser(id , user) ;
+		return new ResponseEntity<User>(user_change,HttpStatus.CREATED);
+	}
+	
+	@PostMapping("/find_user/{id_user}")
+	public ResponseEntity<User> findUser(@PathVariable Long id_user)
+	{
+		User user_find = this.user_service.findUserByID(id_user);
+		return new ResponseEntity<User>(user_find,HttpStatus.CREATED);
+	}
+	
 }
