@@ -2,7 +2,6 @@ package osc.greenlive.service;
 
 import java.util.List;
 
-import osc.greenlive.model.Cultures;
 import osc.greenlive.model.User;
 
 public interface UserService {

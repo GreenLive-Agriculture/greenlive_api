@@ -25,7 +25,7 @@ public class User {
 	private Long id_user;
 	
 	private String fonction;
-	private boolean actif;
+	private String actif;
 	private String email;
 	private String sexe;
 	
