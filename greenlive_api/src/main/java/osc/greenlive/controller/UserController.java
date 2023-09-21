@@ -2,6 +2,7 @@ package osc.greenlive.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,5 +28,14 @@ public class UserController {
 		User userExist = this.user_service.saveUser(user);
 		return new ResponseEntity<User>(userExist,HttpStatus.CREATED);
 	}
+	
+	@PostMapping("/delete/{id}")
+	public ResponseEntity<User> deleteUser(@PathVariable Long id)
+	{      
+		this.user_service.deleteUser(id);
+		
+		return new ResponseEntity<User>(HttpStatus.OK);
+	}
+		
 
 }

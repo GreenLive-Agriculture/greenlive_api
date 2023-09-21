@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
+import osc.greenlive.model.Cultures;
 import osc.greenlive.model.User;
 import osc.greenlive.repository.UserServiceRepository;
 
@@ -24,19 +25,24 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public List<User> findUser() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public User deleteUser(Long id_user) {
-		// TODO Auto-generated method stub
-		return null;
+	public void deleteUser(Long id_user) {
+		this.userRepo.deleteById(id_user);
 	}
 
 	@Override
 	public User updateUser(Long id_user, User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User findUserByID(Long id_user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Cultures> list_culture(Long id_user) {
 		// TODO Auto-generated method stub
 		return null;
 	}
