@@ -29,19 +29,23 @@ public class CultureServiceImpl implements CultureService{
 	@Override
 	public List<Cultures> findCultures() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.culturesRepo.findAll();
 	}
 
 	@Override
-	public Cultures deleteCulture(Long id_culture) {
+	public void deleteCulture(Long id_culture) {
 		// TODO Auto-generated method stub
-		return null;
+		this.culturesRepo.deleteById(id_culture);
 	}
 
 	@Override
 	public Cultures updateCulture(Long id_culture, Cultures culture) {
 		// TODO Auto-generated method stub
-		return null;
+		this.culturesRepo.deleteById(id_culture);
+		
+		this.culturesRepo.save(culture);
+		
+		return culture;
 	}
 	
 }

@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
 import osc.greenlive.model.Cultures;
+import osc.greenlive.model.Kit;
 import osc.greenlive.model.User;
+import osc.greenlive.repository.KitServiceRepository;
 import osc.greenlive.repository.UserServiceRepository;
 
 @Service
@@ -14,9 +16,11 @@ import osc.greenlive.repository.UserServiceRepository;
 public class UserServiceImpl implements UserService{
 	
 	private UserServiceRepository userRepo ;
+	private KitServiceRepository kitRepo ;
 	
-	public UserServiceImpl(UserServiceRepository userRepo) {
+	public UserServiceImpl(KitServiceRepository kitrepo ,UserServiceRepository userRepo) {
 		this.userRepo = userRepo ;
+		this.kitRepo = kitrepo;
 	}
 
 	@Override
@@ -32,10 +36,9 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User updateUser(Long id_user, User user) {
 		
-		User get_user = this.userRepo.findById(id_user).orElse(null);
-		
-		get_user = user ;
-		return get_user;
+		this.userRepo.deleteById(id_user);
+		this.userRepo.save(user);
+		return user;
 	}
 
 	@Override
@@ -51,6 +54,12 @@ public class UserServiceImpl implements UserService{
 		User get_user = this.userRepo.findById(id_user).orElse(null) ;
 		
 		return get_user.getUser_culture();
+	}
+	
+	@Override
+	public List<Kit> listKit (Long id_user)
+	{
+		return this.kitRepo.findKitByUserId(id_user);
 	}
 
 	@Override
