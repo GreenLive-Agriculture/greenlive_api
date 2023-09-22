@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
 import osc.greenlive.model.Cultures;
-import osc.greenlive.model.Kit;
 import osc.greenlive.model.User;
 import osc.greenlive.repository.UserServiceRepository;
 
@@ -52,30 +51,7 @@ public class UserServiceImpl implements UserService{
 		return get_user.getUser_culture();
 	}
 	
-	@SuppressWarnings("null")
-	@Override
-	public List<Kit> listKit (Long id_user)
-	{
-		User getuser = this.userRepo.findById(id_user).orElse(null);
-		
-		System.out.print(getuser.getEmail());
-		
-		List<Cultures> getCulture = getuser.getUser_culture();
-		
-		List<Kit> listKit = null ;
-		
-		CultureServiceImpl cultureimpl = null ;
-		
-		int i = getCulture.size()-1 ;
-		
-		while(i != 0)
-		{
-			listKit.addAll(cultureimpl.listKitCultures(getCulture.get(i).getId_culture()));
-			i -- ;
-		}
-		
-		return listKit;
-	}
+	
 
 	@Override
 	public List <User> listUser() {

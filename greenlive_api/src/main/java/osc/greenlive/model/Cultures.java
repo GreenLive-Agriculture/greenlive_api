@@ -26,7 +26,7 @@ public class Cultures {
 			
 		}
 
-		private Long type_culture;
+		private String type_culture;
 		
 		private Date date_plantation;
 		private Long superficie;

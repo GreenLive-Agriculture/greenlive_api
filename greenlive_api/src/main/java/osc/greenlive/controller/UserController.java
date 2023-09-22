@@ -69,11 +69,4 @@ public class UserController {
 		List<User> listUser = this.user_service.listUser();
 		return new ResponseEntity<List<User>>(listUser,HttpStatus.CREATED);
 	}
-	
-	@GetMapping("/kit_list/{id_user}")
-	public ResponseEntity<List<Kit>> list_kit(@PathVariable Long id_user)
-	{
-		List<Kit> getKit = this.user_service.listKit(id_user);
-		return new ResponseEntity<List<Kit>>(getKit,HttpStatus.CREATED);
-	}
 }

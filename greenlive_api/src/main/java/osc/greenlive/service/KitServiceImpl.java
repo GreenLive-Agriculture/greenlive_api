@@ -30,15 +30,20 @@ public class KitServiceImpl implements KitService {
 	}
 
 	@Override
-	public Kit deleteUser(Long id_kit) {
+	public void deleteKit(Long id_kit) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		this.kitRepo.deleteById(id_kit);
 	}
 
 	@Override
-	public Kit updateUser(Long id_kit, Kit kit) {
+	public Kit updateKit(Long id_kit, Kit kit) {
 		// TODO Auto-generated method stub
-		return null;
+		Kit get = this.kitRepo.findById(id_kit).orElse(null);
+		
+		this.kitRepo.save(kit);
+		this.kitRepo.delete(get);
+		
+		return kit ;
 	}
-
 }
