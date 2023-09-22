@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import osc.greenlive.model.Cultures;
+import osc.greenlive.model.Kit;
 import osc.greenlive.model.User;
 import osc.greenlive.service.UserServiceImpl;
 
@@ -68,12 +69,11 @@ public class UserController {
 		List<User> listUser = this.user_service.listUser();
 		return new ResponseEntity<List<User>>(listUser,HttpStatus.CREATED);
 	}
-	/*
+	
 	@GetMapping("/kit_list/{id_user}")
 	public ResponseEntity<List<Kit>> list_kit(@PathVariable Long id_user)
 	{
-		List<Kit> getKit = this.user_service.listKit(id_user) ;
-		System.out.print("getting kit"+getKit.get(0).getName_kit());
+		List<Kit> getKit = this.user_service.listKit(id_user);
 		return new ResponseEntity<List<Kit>>(getKit,HttpStatus.CREATED);
-	}*/
+	}
 }

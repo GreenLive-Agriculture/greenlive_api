@@ -22,6 +22,11 @@ public class Kit {
 	
 	private String name_kit;
 	
+	public Kit()
+	{
+		
+	}
+	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id_kit;
 	
