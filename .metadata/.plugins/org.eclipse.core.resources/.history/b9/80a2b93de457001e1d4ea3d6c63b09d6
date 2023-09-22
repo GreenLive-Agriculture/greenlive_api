@@ -1,0 +1,13 @@
+package osc.greenlive.repository;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class CulturesServiceImpl extends CultureService{
+	
+	
+	@Autowired
+    private CultureRepository cultureRepository;
+	
+	
+}

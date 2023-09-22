@@ -1,0 +1,12 @@
+package osc.greenlive.service;
+
+public interface CultureService {
+	
+	public static void saveCulture()
+	{
+		
+	}
+	
+	
+
+}

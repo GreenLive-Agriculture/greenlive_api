@@ -1,0 +1,33 @@
+package osc.greenlive.service;
+
+import java.util.List;
+
+import osc.greenlive.model.Kit;
+
+public class KitServiceImpl implements KitService {
+
+	@Override
+	public Kit saveKit(Kit user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Kit> findKit() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Kit deleteUser(Long id_kit) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Kit updateUser(Long id_kit, Kit kit) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

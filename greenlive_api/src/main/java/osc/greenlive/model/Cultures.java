@@ -20,6 +20,11 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class Cultures {
+	
+		public Cultures()
+		{
+			
+		}
 
 		private Long type_culture;
 		
@@ -35,8 +40,4 @@ public class Cultures {
 		
 		@ManyToMany(mappedBy="kit_culture",fetch=FetchType.EAGER)
 		private List<Kit> culture_kit = new ArrayList<>();
-		
-		
-		
-		
 }

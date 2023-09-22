@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -54,18 +55,25 @@ public class UserController {
 		return new ResponseEntity<User>(user_find,HttpStatus.CREATED);
 	}
 	
-	@PostMapping("/culture_list/{id_user}")
+	@GetMapping("/culture_list/{id_user}")
 	public ResponseEntity<List<Cultures>> list_culture(@PathVariable Long id_user)
 	{
 		List<Cultures> user_change = this.user_service.list_culture(id_user) ;
 		return new ResponseEntity<List<Cultures>>(user_change,HttpStatus.CREATED);
 	}
 	
-	@PostMapping("/culture_list/all")
+	@GetMapping("/culture_list/all")
 	public ResponseEntity<List<User>> listUser()
 	{
 		List<User> listUser = this.user_service.listUser();
 		return new ResponseEntity<List<User>>(listUser,HttpStatus.CREATED);
 	}
-	
+	/*
+	@GetMapping("/kit_list/{id_user}")
+	public ResponseEntity<List<Kit>> list_kit(@PathVariable Long id_user)
+	{
+		List<Kit> getKit = this.user_service.listKit(id_user) ;
+		System.out.print("getting kit"+getKit.get(0).getName_kit());
+		return new ResponseEntity<List<Kit>>(getKit,HttpStatus.CREATED);
+	}*/
 }

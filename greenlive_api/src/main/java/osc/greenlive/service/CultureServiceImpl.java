@@ -1,11 +1,13 @@
 package osc.greenlive.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
 import osc.greenlive.model.Cultures;
+import osc.greenlive.model.Kit;
 import osc.greenlive.repository.CulturesServiceRepository;
 
 @Service
@@ -47,5 +49,9 @@ public class CultureServiceImpl implements CultureService{
 		
 		return culture;
 	}
-	
+	@Override
+	public List<Kit> listKitCultures (Long id_culture)
+	{
+		return this.culturesRepo.findById(id_culture).orElse(null).getCulture_kit();	
+	}
 }

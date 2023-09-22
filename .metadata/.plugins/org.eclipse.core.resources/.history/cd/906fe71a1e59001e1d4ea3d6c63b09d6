@@ -1,0 +1,15 @@
+package osc.greenlive.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import osc.greenlive.model.Kit;
+
+public interface KitServiceRepository extends JpaRepository<Kit, Long>{
+	
+	@Query("")
+	List<Kit> findKitByUserId(@Param() Long user_id);
+}

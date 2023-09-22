@@ -1,0 +1,15 @@
+package osc.greenlive.service;
+
+import java.util.List;
+
+import osc.greenlive.model.Ressource;
+import osc.greenlive.model.User;
+
+public interface RessourceService {
+
+	public Ressource saveRessource(Ressource ressource);
+	public List<Ressource> findRessource();
+	public User deleteressource(Long id_ressource);
+	public User updateUser(Long id_user , User user);
+	
+}

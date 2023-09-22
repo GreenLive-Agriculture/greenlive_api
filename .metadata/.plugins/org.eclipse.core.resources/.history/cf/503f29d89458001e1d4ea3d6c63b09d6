@@ -1,0 +1,9 @@
+package osc.greenlive.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import osc.greenlive.model.ModelIA;
+
+public interface ModelIAServiceRepository extends JpaRepository<ModelIA, Long>{
+
+}

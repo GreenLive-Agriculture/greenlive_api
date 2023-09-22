@@ -1,0 +1,33 @@
+package osc.greenlive.service;
+
+import java.util.List;
+
+import osc.greenlive.model.Data;
+
+public class DataServiceImpl implements DataService{
+
+	@Override
+	public Data saveData(Data Data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Data> findData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Data deleteData(Long id_Data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Data updateData(Long id_Data, Data Data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

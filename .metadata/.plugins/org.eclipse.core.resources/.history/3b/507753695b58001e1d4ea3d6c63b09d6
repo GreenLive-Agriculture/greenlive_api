@@ -1,0 +1,13 @@
+package osc.greenlive.service;
+
+import org.hibernate.mapping.List;
+
+import osc.greenlive.model.Cultures;
+
+public interface CultureService {
+	
+	public Cultures saveCulture(Cultures culture);
+	public List<Cultures> findCultures();
+	public List<CUltures> findCUltures_user(User user);
+
+}

@@ -1,0 +1,18 @@
+package osc.greenlive.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import osc.greenlive.service.DataServiceImpl;
+
+@RestController
+@RequestMapping("/data")
+public class DataController {
+	
+	private DataServiceImpl data_service;
+	
+	public DataController(DataServiceImpl data_service)
+	{
+		this.data_service = data_service;
+	}
+}

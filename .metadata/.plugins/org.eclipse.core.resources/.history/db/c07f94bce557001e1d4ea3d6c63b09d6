@@ -1,0 +1,14 @@
+package osc.greenlive.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import osc.greenlive.service.CultureService;
+
+@Controller
+public class CulturesController {
+	
+	 @Autowired
+	 private CultureService cultureService;
+	
+}
