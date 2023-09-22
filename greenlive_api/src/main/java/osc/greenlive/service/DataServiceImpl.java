@@ -33,12 +33,17 @@ public class DataServiceImpl implements DataService{
 	@Override
 	public Data deleteData(Long id_Data) {
 		// TODO Auto-generated method stub
+		this.dataRepo.deleteById(id_Data);
 		return null;
 	}
 
 	@Override
-	public Data updateData(Long id_Data, Data Data) {
+	public Data updateData(Long id_Data, Data data) {
 		// TODO Auto-generated method stub
+		Data getData = this.dataRepo.findById(id_Data).orElse(null);
+		this.dataRepo.delete(getData);
+		this.dataRepo.save(data) ;
+		
 		return null;
 	}
 

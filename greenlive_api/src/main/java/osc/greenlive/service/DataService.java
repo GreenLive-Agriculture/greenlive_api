@@ -9,5 +9,5 @@ public interface DataService {
 	public Data saveData(Data Data);
 	public List<Data> findData();
 	public Data deleteData(Long id_Data);
-	public Data updateData(Long id_Data , Data Data);
+	public Data updateData(Long id_Data , Data data);
 }
