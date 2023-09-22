@@ -53,4 +53,10 @@ public class UserServiceImpl implements UserService{
 		return get_user.getUser_culture();
 	}
 
+	@Override
+	public List <User> listUser() {
+		// TODO Auto-generated method stub
+		return this.userRepo.findAll();
+	}
+
 }

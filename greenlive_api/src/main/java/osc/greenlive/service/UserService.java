@@ -7,6 +7,7 @@ import osc.greenlive.model.User;
 
 public interface UserService {
 	public User saveUser(User user);
+	public List <User> listUser();
 	public User findUserByID(Long id_user);
 	public void deleteUser(Long id_user);
 	public User updateUser(Long id_user , User user);

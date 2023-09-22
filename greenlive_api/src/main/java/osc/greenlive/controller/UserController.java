@@ -61,4 +61,11 @@ public class UserController {
 		return new ResponseEntity<List<Cultures>>(user_change,HttpStatus.CREATED);
 	}
 	
+	@PostMapping("/culture_list/all")
+	public ResponseEntity<List<User>> listUser()
+	{
+		List<User> listUser = this.user_service.listUser();
+		return new ResponseEntity<List<User>>(listUser,HttpStatus.CREATED);
+	}
+	
 }
