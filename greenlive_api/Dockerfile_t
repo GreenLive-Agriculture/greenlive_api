@@ -3,7 +3,7 @@ FROM maven:3.8.3-openjdk-11-slim AS build
 
 # Clonez le dépôt Git
 RUN apt-get update && apt-get install -y git
-RUN git clone https://github.com/GreenLive-Agriculture/greenlive_dashboard.git /app
+RUN git clone https://github.com/GreenLive-Agriculture/greenlive_dashboard.git /app && git checkout master && git pull
 
 # Définissez le répertoire de travail
 WORKDIR /app
