@@ -37,7 +37,7 @@ public class kitController {
 		return new ResponseEntity<Kit>(deleteKit,HttpStatus.CREATED);
 	}
 	
-	@GetMapping("/update/{id}")
+	@GetMapping("/delete/{id}")
 	public void deleteKit(@PathVariable Long id)
 	{
 		this.kit_service.deleteKit(id) ;
