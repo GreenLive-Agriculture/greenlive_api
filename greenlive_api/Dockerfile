@@ -6,7 +6,7 @@ WORKDIR /app
 
 RUN mvn clean install
 
-FROM openjdk:11-jre-slim
+FROM openjdk:17-jdk-slim
 
 COPY --from=build /app/target/*.jar /app/api_greenlive.jar
 
