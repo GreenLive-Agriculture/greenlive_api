@@ -5,17 +5,21 @@ import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
 import osc.greenlive.model.Cultures;
+import osc.greenlive.model.Kit;
 import osc.greenlive.model.User;
+import osc.greenlive.repository.KitServiceRepository;
 import osc.greenlive.repository.UserServiceRepository;
 
 @Service
 @Transactional
 public class UserServiceImpl implements UserService{
 	
-	private UserServiceRepository userRepo ;
+	private UserServiceRepository userRepo;
+	private KitServiceRepository kitRepo;
 	
-	public UserServiceImpl(UserServiceRepository userRepo) {
+	public UserServiceImpl(UserServiceRepository userRepo, KitServiceRepository KitRepo) {
 		this.userRepo = userRepo ;
+		this.kitRepo = KitRepo ;
 	}
 
 	@Override
@@ -51,12 +55,15 @@ public class UserServiceImpl implements UserService{
 		return get_user.getUser_culture();
 	}
 	
-	
-
 	@Override
 	public List <User> listUser() {
 		// TODO Auto-generated method stub
 		return this.userRepo.findAll();
 	}
-
+	
+	@Override
+	public List<Kit> listKit(Long id_user)
+	{
+		return this.kitRepo.findKitByUserId(id_user);
+	}
 }

@@ -24,12 +24,6 @@ public class KitServiceImpl implements KitService {
 	}
 
 	@Override
-	public List<Kit> findKit() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public void deleteKit(Long id_kit) {
 		// TODO Auto-generated method stub
 		
@@ -45,5 +39,17 @@ public class KitServiceImpl implements KitService {
 		this.kitRepo.delete(get);
 		
 		return kit ;
+	}
+
+	@Override
+	public List<Kit> findKitByUser(Long user_id) {
+		// TODO Auto-generated method stub
+		return this.kitRepo.findKitByUserId(user_id);
+	}
+
+	@Override
+	public List<Kit> findKit() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
