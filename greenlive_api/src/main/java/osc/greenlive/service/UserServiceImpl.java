@@ -1,5 +1,6 @@
 package osc.greenlive.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
@@ -7,7 +8,6 @@ import jakarta.transaction.Transactional;
 import osc.greenlive.model.Cultures;
 import osc.greenlive.model.Kit;
 import osc.greenlive.model.User;
-import osc.greenlive.repository.KitServiceRepository;
 import osc.greenlive.repository.UserServiceRepository;
 
 @Service
@@ -61,26 +61,22 @@ public class UserServiceImpl implements UserService{
 		return this.userRepo.findAll();
 	}
 	
-	@SuppressWarnings({ "null" })
 	@Override
 	public List<Kit> listKit(Long id_user)
 	{
-		List<Kit> KitList = null ;
-		@SuppressWarnings("unused")
-		CultureServiceImpl cultureService ;
+		List<Kit> KitList = new ArrayList<Kit>() ;
 		
 		User user_fetch = this.userRepo.findById(id_user).orElse(null);
 		
+		Long idCulture  ;
 		int i = 0;
 		
-		Long idCulture = user_fetch.getUser_culture().get(i).getId_culture() ;
-		
-		do
+		while (i < user_fetch.getUser_culture().size())
 		{
+			idCulture = user_fetch.getUser_culture().get(i).getId_culture() ;
 			KitList.addAll(this.cultureService.listKitCultures(idCulture));
 			i++;
 		}
-		while (i <= user_fetch.getUser_culture().size() -1) ;	
 		
 		return KitList;
 	}

@@ -17,4 +17,5 @@
     <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
     <fullyQualifiedTypeName name="jakarta.persistence.PrimaryKeyJoinColumn"/>
     <fullyQualifiedTypeName name="jakarta.persistence.MapsId"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

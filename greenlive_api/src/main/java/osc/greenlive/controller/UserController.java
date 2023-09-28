@@ -49,7 +49,7 @@ public class UserController {
 		return new ResponseEntity<User>(user_change,HttpStatus.CREATED);
 	}
 	
-	@PostMapping("/find_user/{id_user}")
+	@GetMapping("/find_user/{id_user}")
 	public ResponseEntity<User> findUser(@PathVariable Long id_user)
 	{
 		User user_find = this.user_service.findUserByID(id_user);
