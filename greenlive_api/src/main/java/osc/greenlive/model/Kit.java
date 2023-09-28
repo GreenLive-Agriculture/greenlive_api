@@ -1,17 +1,16 @@
 package osc.greenlive.model;
 
-import java.util.ArrayList;
-import java.util.List;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,18 +31,18 @@ public class Kit {
 	}
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "id_kit")
 	private Long id_kit;
 	
 	private String type_kit ;
 	
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(name = "KitForCultures",joinColumns = @JoinColumn(name = "id_kit"),inverseJoinColumns = @JoinColumn(name = "id_culture"))
-	private List<Cultures> kit_culture = new ArrayList<>();
+	@ManyToOne
+	private Cultures kit_culture ;
 	
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(name = "kit_ressource",joinColumns = @JoinColumn(name = "id_kit"),inverseJoinColumns = @JoinColumn(name = "id_ressource"))
-	private List<Ressource> kit_ressource = new ArrayList<>();
+	@ManyToOne
+	private Ressource kit_ressource;
 	
-	@OneToMany(mappedBy="data_kit",fetch=FetchType.EAGER)
-	private List<Data> kit_data = new ArrayList<>();
+	@OneToOne(mappedBy = "kit", cascade = CascadeType.ALL, fetch = FetchType.EAGER, optional = false)
+	@PrimaryKeyJoinColumn
+	private Data data;
 }

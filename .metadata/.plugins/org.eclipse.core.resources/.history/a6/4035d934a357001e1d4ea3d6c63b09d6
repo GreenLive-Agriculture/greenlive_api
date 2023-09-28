@@ -1,7 +1,0 @@
-package osc.greenlive.model;
-
-public class modelIA {
-	private String name_IA;
-	private Long size;
-	private long Id_IA;
-}

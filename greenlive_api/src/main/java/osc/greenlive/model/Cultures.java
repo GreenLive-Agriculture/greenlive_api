@@ -9,8 +9,8 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -40,6 +40,6 @@ public class Cultures {
 		@ManyToOne
 		private User culture_user;
 		
-		@ManyToMany(mappedBy="kit_culture",fetch=FetchType.EAGER)
+		@OneToMany(mappedBy="kit_culture",fetch=FetchType.EAGER)
 		private List<Kit> culture_kit = new ArrayList<>();
 }

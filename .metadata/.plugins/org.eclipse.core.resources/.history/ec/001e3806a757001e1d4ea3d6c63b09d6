@@ -1,7 +1,0 @@
-package osc.greenlive.model;
-
-public class ressource {
-	private String name_ressource;
-	private Long id_ressource;
-	private String type_ressource;
-}

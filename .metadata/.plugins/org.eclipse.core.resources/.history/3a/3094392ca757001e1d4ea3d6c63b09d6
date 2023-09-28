@@ -1,8 +1,0 @@
-package osc.greenlive.model;
-
-
-public class capteurs {
-	
-	private String name_kit;
-	private Long id_kit;
-}

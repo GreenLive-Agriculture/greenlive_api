@@ -43,8 +43,7 @@ public class KitServiceImpl implements KitService {
 
 	@Override
 	public List<Kit> findKitByUser(Long user_id) {
-		// TODO Auto-generated method stub
-		return this.kitRepo.findKitByUserId(user_id);
+		return null;
 	}
 
 	@Override

@@ -15,11 +15,11 @@ import osc.greenlive.repository.UserServiceRepository;
 public class UserServiceImpl implements UserService{
 	
 	private UserServiceRepository userRepo;
-	private KitServiceRepository kitRepo;
+	private CultureServiceImpl cultureService;
 	
-	public UserServiceImpl(UserServiceRepository userRepo, KitServiceRepository KitRepo) {
+	public UserServiceImpl(UserServiceRepository userRepo, CultureServiceImpl cultureService) {
 		this.userRepo = userRepo ;
-		this.kitRepo = KitRepo ;
+		this.cultureService = cultureService ;
 	}
 
 	@Override
@@ -61,9 +61,27 @@ public class UserServiceImpl implements UserService{
 		return this.userRepo.findAll();
 	}
 	
+	@SuppressWarnings({ "null" })
 	@Override
 	public List<Kit> listKit(Long id_user)
 	{
-		return this.kitRepo.findKitByUserId(id_user);
+		List<Kit> KitList = null ;
+		@SuppressWarnings("unused")
+		CultureServiceImpl cultureService ;
+		
+		User user_fetch = this.userRepo.findById(id_user).orElse(null);
+		
+		int i = 0;
+		
+		Long idCulture = user_fetch.getUser_culture().get(i).getId_culture() ;
+		
+		do
+		{
+			KitList.addAll(this.cultureService.listKitCultures(idCulture));
+			i++;
+		}
+		while (i <= user_fetch.getUser_culture().size() -1) ;	
+		
+		return KitList;
 	}
 }

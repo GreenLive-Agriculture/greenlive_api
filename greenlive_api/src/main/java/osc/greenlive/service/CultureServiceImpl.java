@@ -41,7 +41,6 @@ public class CultureServiceImpl implements CultureService{
 
 	@Override
 	public Cultures updateCulture(Long id_culture, Cultures culture) {
-		// TODO Auto-generated method stub
 		this.culturesRepo.deleteById(id_culture);
 		
 		this.culturesRepo.save(culture);

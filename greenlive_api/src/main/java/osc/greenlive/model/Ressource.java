@@ -8,7 +8,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,6 +28,6 @@ public class Ressource {
 	
 	private String type_ressource;
 	
-	@ManyToMany(mappedBy="kit_ressource",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="kit_ressource",fetch=FetchType.EAGER)
 	private List<Kit> ressource_kit = new ArrayList<>();
 }

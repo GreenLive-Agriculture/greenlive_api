@@ -1,0 +1,44 @@
+package osc.greenlive.model;
+
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Table(name ="Kit")
+@Getter
+@Setter
+@AllArgsConstructor
+public class Kit {
+	
+	private String name_kit;
+	
+	public Kit()
+	{
+		
+	}
+	
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id_kit;
+	
+	private String type_kit ;
+	
+	@ManyToOne
+	private Cultures kit_culture ;
+	
+	@ManyToOne
+	private Ressource kit_ressource;
+	
+	@OneToOne(mappedBy = "kit", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+	private Data data;
+}

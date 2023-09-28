@@ -1,9 +1,0 @@
-package osc.greenlive.model;
-
-public class data {
-	private Long id;
-	private String name_data;
-	private String path_file;
-	private data_type data_type_content ;
-	
-}

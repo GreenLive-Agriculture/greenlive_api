@@ -1,8 +1,0 @@
-package osc.greenlive.repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-
-public interface CulturesServiceRepository<Cultures> extends JpaRepository<Cultures, Long>{
-	
-}
