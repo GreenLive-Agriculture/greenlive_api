@@ -1,5 +1,7 @@
 package osc.greenlive.controller;
 
+import java.util.Map;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,5 +43,14 @@ public class kitController {
 	public void deleteKit(@PathVariable Long id)
 	{
 		this.kit_service.deleteKit(id) ;
+	}
+	
+	@GetMapping("/display_data/{id_kit}")
+	public Map<String, Object> gettingData(@PathVariable Long id)
+	{
+		String apiUrl = "https://example.com/api/values";
+		Map<String, Object> response = new HashMap<>();
+		
+		return response ;
 	}
 }
