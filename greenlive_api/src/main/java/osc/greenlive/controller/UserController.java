@@ -73,6 +73,7 @@ public class UserController {
 	@GetMapping("/kit/list/{id_user}")
 	public ResponseEntity<List<Kit>> listUserKit(@PathVariable Long id_user)
 	{
+		System.out.print("id "+id_user+" \n");
 		List<Kit> listUserKit = this.user_service.listKit(id_user);
 		return new ResponseEntity<List<Kit>>(listUserKit,HttpStatus.CREATED);
 	}

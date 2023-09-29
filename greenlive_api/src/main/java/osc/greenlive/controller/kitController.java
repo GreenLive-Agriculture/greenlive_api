@@ -1,5 +1,6 @@
 package osc.greenlive.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.http.HttpStatus;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import osc.greenlive.model.Kit;
 import osc.greenlive.service.KitServiceImpl;
@@ -49,6 +51,11 @@ public class kitController {
 	public Map<String, Object> gettingData(@PathVariable Long id)
 	{
 		String apiUrl = "https://example.com/api/values";
+		RestTemplate restTemplate = new RestTemplate();
+		
+		String jsonResponse = restTemplate.getForObject(apiUrl, String.class);
+		
+		
 		Map<String, Object> response = new HashMap<>();
 		
 		return response ;
